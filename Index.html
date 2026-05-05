@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PBA Partner Execution Tracker</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    h2 { color: #333; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background-color: #f2f2f2; }
+
+    .discovery { background-color: #e3f2fd; }
+    .activation { background-color: #fff3cd; }
+    .pipeline { background-color: #d4edda; }
+    .stalled { background-color: #f8d7da; }
+  </style>
+</head>
+
+<body>
+
+<h2>Partner Execution Tracker (GEM Model)</h2>
+
+<p>
+<b>Purpose:</b> Track partner movement from onboarding → activation → pipeline → S2S → deal progression, including readiness and blockers.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Partner</th>
+      <th>Motion Stage</th>
+      <th>Date</th>
+      <th>Solution Readiness</th>
+      <th>Before (Prep)</th>
+      <th>During (What surfaced)</th>
+      <th>After (Next Steps)</th>
+      <th>S2S Details</th>
+      <th>Pipeline Impact</th>
+      <th>Deal Progress</th>
+      <th>Pending / Blockers</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <!-- EXAMPLE ROW -->
+    <tr class="activation">
+      <td>Cloudera</td>
+      <td>Activation</td>
+      <td>May 5</td>
+      <td>In Progress</td>
+      <td>Sent agenda, aligned on pipeline focus</td>
+      <td>2 opportunities surfaced</td>
+      <td>Schedule S2S with Microsoft AE</td>
+      <td>AE intro planned</td>
+      <td>New opportunities</td>
+      <td>Identified</td>
+      <td>Partner not fully marketplace ready</td>
+      <td>In Progress</td>
+    </tr>
+
+    <!-- ADD NEW ROWS BELOW -->
+
+    <tr class="pipeline">
+      <td>Denodo</td>
+      <td>Pipeline</td>
+      <td>May 6</td>
+      <td>Ready</td>
+      <td>Reviewed previous deal actions</td>
+      <td>1 deal progressing, blocker identified</td>
+      <td>Escalate internally + follow up</td>
+      <td>AE engaged</td>
+      <td>Progress</td>
+      <td>In Progress</td>
+      <td>Customer procurement delay</td>
+      <td>In Progress</td>
+    </tr>
+
+    <tr class="stalled">
+      <td>Partner C</td>
+      <td>Discovery</td>
+      <td>May 7</td>
+      <td>Not Ready</td>
+      <td>Intro email sent</td>
+      <td>No opportunities surfaced</td>
+      <td>Reset expectations, identify accounts</td>
+      <td>No S2S</td>
+      <td>Stalled</td>
+      <td>No Deal</td>
+      <td>No pipeline visibility</td>
+      <td>Pending</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+</body>
+</html>
