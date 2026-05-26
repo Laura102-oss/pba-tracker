@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Engagement Checklist - Pre/In/Post Call</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .partner-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .info-field {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-field label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .info-field input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .section-icon {
+            font-size: 24px;
+            margin-right: 12px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .section-subtitle {
+            font-size: 12px;
+            color: #999;
+            margin-left: 36px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .checklist-item:hover {
+            background: #e9ecef;
+        }
+        
+        .checklist-item.completed {
+            background: #e7f5e7;
+            border-left: 3px solid #28a745;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        
+        .checklist-content {
+            flex: 1;
+        }
+        
+        .checklist-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .checklist-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .notes-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #667eea;
+        }
+        
+        .notes-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .notes-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e9ecef;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #dee2e6;
+        }
+        
+        .progress-bar {
+            margin-bottom: 30px;
+        }
+        
+        .progress-label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .progress-track {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        @media (max-width: 600px) {
+            .info-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Partner Engagement Checklist</h1>
+            <p>Pre-Call | In-Call | Post-Call — Drive Pipeline Visibility</p>
+        </div>
+        
+        <div class="content">
+            <!-- Partner Info Section -->
+            <div class="partner-info">
+                <h3 style="margin-bottom: 15px; color: #333;">Call Details</h3>
+                <div class="info-group">
+                    <div class="info-field">
+                        <label>Partner Name</label>
+                        <input type="text" id="partnerName" placeholder="e.g., Acme Solutions">
+                    </div>
+                    <div class="info-field">
+                        <label>Partner Contact</label>
+                        <input type="text" id="partnerContact" placeholder="Name / Title">
+                    </div>
+                </div>
+                <div class="info-group">
+                    <div class="info-field">
+                        <label>Call Date</label>
+                        <input type="date" id="callDate">
+                    </div>
+                    <div class="info-field">
+                        <label>Call Type</label>
+                        <select id="callType" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+                            <option value="">-- Select --</option>
+                            <option value="Pre-Call">Pre-Call Planning</option>
+                            <option value="In-Call">Live Call</option>
+                            <option value="Post-Call">Post-Call Follow-up</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-label">Engagement Progress</div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- PRE-CALL SECTION -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">📋</span>
+                    <span class="section-title">Pre-Call Prep</span>
+                </div>
+                <div class="section-subtitle">Set up for success — align on goals and research</div>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="precall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Reviewed partner's current pipeline (deals, stages, sizing)</div>
+                        <div class="checklist-desc">Look at your CRM or last shared forecast. Know what they're working on.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="precall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Identified 2-3 co-sell opportunities or gaps</div>
+                        <div class="checklist-desc">Where can you help? What's missing from their forecast?</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="precall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Prepared specific questions on pipeline</div>
+                        <div class="checklist-desc">E.g., "Walk me through your Q3 forecast... what deals are at risk?"</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="precall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Set call agenda with partner (sent in advance)</div>
+                        <div class="checklist-desc">Clear, focused agenda. Include time for pipeline review.</div>
+                    </div>
+                </label>
+            </div>
+            
+            <!-- IN-CALL SECTION -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🎯</span>
+                    <span class="section-title">In-Call Engagement</span>
+                </div>
+                <div class="section-subtitle">Drive the conversation toward pipeline commitment</div>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="incall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Opened with business context (market, trends, opportunities)</div>
+                        <div class="checklist-desc">Frame the call around growth and partnership value, not just updates.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="incall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Asked about their current pipeline and growth goals</div>
+                        <div class="checklist-desc">Get them talking first. Ask: "How are we tracking vs. your plan?"</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="incall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Identified and discussed co-sell opportunities</div>
+                        <div class="checklist-desc">Be specific. "I see a fit with Customer X. Can we explore together?"</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="incall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Confirmed pipeline numbers and deal stages</div>
+                        <div class="checklist-desc">Document: committed deals, in-progress, at-risk. Get exact sizing.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="incall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Secured commitments for next steps (deal registration, joint planning)</div>
+                        <div class="checklist-desc">Don't end without commitment. "Let's lock in Q3 planning for June 15th."</div>
+                    </div>
+                </label>
+            </div>
+            
+            <!-- POST-CALL SECTION -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">📧</span>
+                    <span class="section-title">Post-Call Follow-Up</span>
+                </div>
+                <div class="section-subtitle">Keep momentum — turn talk into action</div>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="postcall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Sent recap email with pipeline summary and co-sell opportunities</div>
+                        <div class="checklist-desc">Include what was discussed, deals identified, and next steps.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="postcall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Updated CRM with partner pipeline data</div>
+                        <div class="checklist-desc">Log deals, opportunities, and any new info for your team.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="postcall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Scheduled next touchpoint (follow-up call or joint planning)</div>
+                        <div class="checklist-desc">Calendar invite sent. Keep engagement on track.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="postcall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Flagged risks or blockers to leadership</div>
+                        <div class="checklist-desc">Partner at risk? Pipeline concerns? Alert your manager.</div>
+                    </div>
+                </label>
+                
+                <label class="checklist-item">
+                    <input type="checkbox" class="engagement-check" data-section="postcall">
+                    <div class="checklist-content">
+                        <div class="checklist-text">✅ Shared deal registration details or co-sell resources</div>
+                        <div class="checklist-desc">Send links, templates, or contacts to move deals forward.</div>
+                    </div>
+                </label>
+            </div>
+            
+            <!-- NOTES SECTION -->
+            <div class="notes-section">
+                <div class="notes-label">📝 Call Notes & Commitments</div>
+                <textarea class="notes-input" id="notesArea" placeholder="Document key takeaways, partner commitments, risks, and follow-up items...&#10;&#10;Example:&#10;- Partner has 3 deals in pipeline (TBD, $500K+ TAV)&#10;- Risk: Customer X deprioritized their project&#10;- Next call: June 15th at 10am&#10;- Commitment: Partner to share detailed forecast by June 12th"></textarea>
+            </div>
+            
+            <!-- ACTION BUTTONS -->
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="saveCopy()">💾 Save & Copy</button>
+                <button class="btn-secondary" onclick="clearForm()">🔄 Clear Form</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>💡 <strong>Pro Tip:</strong> Bookmark this page. Use it for every partner call. Track progress over time to see what's working.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-update progress bar
+        function updateProgress() {
+            const checks = document.querySelectorAll('.engagement-check');
+            const checked = document.querySelectorAll('.engagement-check:checked');
+            const percentage = (checked.length / checks.length) * 100;
+            document.getElementById('progressFill').style.width = percentage + '%';
+        }
+        
+        // Mark item as completed
+        document.querySelectorAll('.engagement-check').forEach(check => {
+            check.addEventListener('change', function() {
+                this.closest('.checklist-item').classList.toggle('completed');
+                updateProgress();
+            });
+        });
+        
+        // Set today's date by default
+        document.getElementById('callDate').valueAsDate = new Date();
+        
+        // Save & Copy function
+        function saveCopy() {
+            const partner = document.getElementById('partnerName').value || 'Partner';
+            const contact = document.getElementById('partnerContact').value || 'Contact';
+            const date = document.getElementById('callDate').value;
+            const callType = document.getElementById('callType').value || 'Call';
+            const notes = document.getElementById('notesArea').value;
+            
+            const checks = document.querySelectorAll('.engagement-check');
+            const completed = Array.from(checks).filter(c => c.checked);
+            
+            let summary = `
+=== PARTNER ENGAGEMENT SUMMARY ===
+Partner: ${partner}
+Contact: ${contact}
+Date: ${date}
+Call Type: ${callType}
+Completion: ${completed.length} of ${checks.length} items
+
+NOTES:
+${notes}
+
+---
+Saved at: ${new Date().toLocaleString()}
+            `;
+            
+            navigator.clipboard.writeText(summary).then(() => {
+                alert('✅ Summary copied to clipboard! Paste into your CRM or email.');
+            });
+        }
+        
+        // Clear form
+        function clearForm() {
+            if (confirm('Clear all data? This cannot be undone.')) {
+                document.querySelectorAll('.engagement-check').forEach(c => c.checked = false);
+                document.querySelectorAll('.checklist-item').forEach(i => i.classList.remove('completed'));
+                document.getElementById('notesArea').value = '';
+                document.getElementById('partnerName').value = '';
+                document.getElementById('partnerContact').value = '';
+                document.getElementById('callType').value = '';
+                updateProgress();
+            }
+        }
+        
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
