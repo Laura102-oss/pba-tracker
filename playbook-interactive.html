@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBA Partner Engagement Playbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 2px solid #e9ecef;
+            padding: 0 40px;
+            gap: 10px;
+            flex-wrap: wrap;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tab-button {
+            padding: 16px 20px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tab-button:hover {
+            color: #667eea;
+        }
+        
+        .tab-button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .card-section {
+            margin-bottom: 30px;
+        }
+        
+        .card-section h2 {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .card-section li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 3px solid #667eea;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .metric-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .cadence-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .timeline-marker {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .timeline-content strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .step-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .red-flag {
+            background: #fff3cd;
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .red-flag strong {
+            color: #d9534f;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 20px;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 PBA Partner Engagement Playbook</h1>
+            <p>Your complete framework for driving pipeline visibility and partner success</p>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'your-job')">Your Job</button>
+            <button class="tab-button" onclick="switchTab(event, 'metrics')">Success Metrics</button>
+            <button class="tab-button" onclick="switchTab(event, 'cadence')">Cadence</button>
+            <button class="tab-button" onclick="switchTab(event, 'before-call')">Before Call</button>
+            <button class="tab-button" onclick="switchTab(event, 'during-call')">During Call</button>
+            <button class="tab-button" onclick="switchTab(event, 'after-call')">After Call</button>
+            <button class="tab-button" onclick="switchTab(event, 'red-flags')">Red Flags</button>
+        </div>
+        
+        <div class="content">
+            
+            <!-- YOUR JOB -->
+            <div id="your-job" class="tab-content active">
+                <div class="card-section">
+                    <h2>🎯 Your Role & Responsibilities</h2>
+                    <ul>
+                        <li><strong>Own the partner relationship</strong> — You are the strategic point of contact for pipeline visibility and growth</li>
+                        <li><strong>Drive pipeline visibility</strong> — Ensure partners commit to forecasts and share deal details</li>
+                        <li><strong>Identify co-sell opportunities</strong> — Find where we can partner to win deals together</li>
+                        <li><strong>Ensure accountability</strong> — Partners follow through on commitments; you follow through on support</li>
+                    </ul>
+                </div>
+                
+                <div class="card-section">
+                    <h2>💼 What Success Looks Like</h2>
+                    <p style="padding: 15px; background: #e7f5e7; border-radius: 8px; border-left: 3px solid #28a745;">
+                        You've built trust with partners. They proactively share pipeline, ask for your help, and credit you with wins. Your team sees consistent, committed pipeline from every partner account.
+                    </p>
+                </div>
+                
+                <button class="download-btn" onclick="downloadTab('your-job')">📥 Download This Section</button>
+            </div>
+            
+            <!-- SUCCESS METRICS -->
+            <div id="metrics" class="tab-content">
+                <div class="card-section">
+                    <h2>📊 How You're Measured</h2>
+                </div>
+                
+                <div class="metric-box">
+                    <strong>📞 Minimum 1 Strategic Call/Partner/Month</strong><br>
+                    Regular touchpoints. Quarterly QBRs + monthly check-ins minimum. Non-negotiable.
+                </div>
+                
+                <div class="metric-box">
+                    <strong>💰 Pipeline Visibility: $X Committed by Each Partner</strong><br>
+                    Each partner commits to pipeline numbers. You track and report quarterly.
+                </div>
+                
+                <div class="metric-box">
+                    <strong>🤝 Co-Sell Opportunities: Y Deals Identified/Quarter</strong><br>
+                    Minimum 2-3 co-sell opportunities per partner per year. Logged and tracked.
+                </div>
+                
+                <div class="metric-box">
+                    <strong>😊 Partner Satisfaction: Partners Feel Supported & Aligned</strong><br>
+                    Partners rate you as responsive, knowledgeable, and invested in their success.
+                </div>
+                
+                <button class="download-btn" onclick="downloadTab('metrics')">📥 Download This Section</button>
+            </div>
+            
+            <!-- CADENCE -->
+            <div id="cadence" class="tab-content">
+                <div class="card-section">
+                    <h2>📅 Engagement Cadence</h2>
+                </div>
+                
+                <div class="cadence-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Q</div>
+                        <div class="timeline-content">
+                            <strong>Quarterly: Strategic Business Review (QBR)</strong>
+                            <p>Full pipeline review. Growth goals. Co-sell planning. Market trends. 60-90 min call.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">M</div>
+                        <div class="timeline-content">
+                            <strong>Monthly: Check-In Call</strong>
+                            <p>Pipeline updates. Risks & blockers. Co-sell progress. 30-45 min call.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">A</div>
+                        <div class="timeline-content">
+                            <strong>As-Needed: Deal-Specific Calls</strong>
+                            <p>Co-sell opportunities. At-risk deal recovery. Executive escalation. 15-30 min focused calls.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="download-btn" onclick="downloadTab('cadence')">📥 Download This Section</button>
+            </div>
+            
+            <!-- BEFORE CALL -->
+            <div id="before-call" class="tab-content">
+                <div class="card-section">
+                    <h2>📋 Before Every Call: Pre-Call Prep</h2>
+                    <p style="margin-bottom: 20px; color: #666;">Do this 24 hours before the call. Takes 30 minutes.</p>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Research partner's current pipeline</strong><br>
+                        Pull last forecast shared. What deals are they working? What's the sizing? What changed since last call?
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Identify 2-3 co-sell opportunities or gaps</strong><br>
+                        Where can you add value? What are they missing? What can you help with?
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Prepare specific pipeline questions</strong><br>
+                        Write them down. Example: "Walk me through your Q3 forecast... what deals are at risk? What's new?"
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Send agenda to partner (sets expectations)</strong><br>
+                        Subject: "QBR Agenda - June 15th at 10am". Takes 2 minutes. Shows you're organized.
+                    </div>
+                </div>
+                
+                <button class="download-btn" onclick="downloadTab('before-call')">📥 Download This Section</button>
+            </div>
+            
+            <!-- DURING CALL -->
+            <div id="during-call" class="tab-content">
+                <div class="card-section">
+                    <h2>🎯 During the Call: What You Must Cover</h2>
+                    <p style="margin-bottom: 20px; color: #666;">Use the Partner Engagement Checklist to track these items in real-time.</p>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Partner's Q1-Q4 pipeline and growth goals</strong><br>
+                        Listen first. Ask: "What are your top priorities for this year? How can we help you hit your targets?"
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Your role in their top 3-5 deals (co-sell opportunities)</strong><br>
+                        Be specific. "I see a fit here. Can we work together on this deal?"
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Any at-risk deals or blockers</strong><br>
+                        Ask: "Are there any deals that are at risk or stalled? How can I help unblock?"
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Commitments: What they will share, when you'll follow up</strong><br>
+                        Get explicit. "By next Friday, can you send me the detailed forecast? I'll send co-sell details by Tuesday."
+                    </div>
+                </div>
+                
+                <button class="download-btn" onclick="downloadTab('during-call')">📥 Download This Section</button>
+            </div>
+            
+            <!-- AFTER CALL -->
+            <div id="after-call" class="tab-content">
+                <div class="card-section">
+                    <h2>📧 After Every Call: Post-Call Execution</h2>
+                    <p style="margin-bottom: 20px; color: #666;">Do this within 24 hours. This is where the real work happens.</p>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Send recap with pipeline summary and co-sell details</strong><br>
+                        Use the post-call email template. Include: what was discussed, deals identified, next steps, your commitment.
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Log deals into SharePoint List</strong><br>
+                        Partner name, opportunity, stage, sizing, close date. This is your pipeline record.
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Schedule next call (calendar invite)</strong><br>
+                        Don't wait. Send invite same day. "Next monthly check-in: July 15th at 10am."
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Flag any risks to leadership</strong><br>
+                        Partner at risk? Pipeline concerns? Send Slack to your manager: "Partner X flagged $2M deal at risk. Needs executive help."
+                    </div>
+                </div>
+                
+                <div class="step-box">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>Update CRM with new information</strong><br>
+                        Add notes, update deal stages, document commitments. Your manager and team need visibility.
+                    </div>
+                </div>
+                
+                <button class="download-btn" onclick="downloadTab('after-call')">📥 Download This Section</button>
+            </div>
+            
+            <!-- RED FLAGS -->
+            <div id="red-flags" class="tab-content">
+                <div class="card-section">
+                    <h2>🚩 Red Flags: Escalate Immediately</h2>
+                    <p style="margin-bottom: 20px; color: #666;">If you see any of these, alert your manager TODAY. Don't wait.</p>
+                </div>
+                
+                <div class="red-flag">
+                    <strong>🚩 Partner hasn't committed pipeline in 30+ days</strong><br>
+                    This is a relationship risk. Schedule a call. If they ghost you, escalate.
+                </div>
+                
+                <div class="red-flag">
+                    <strong>🚩 Partner deprioritizing a key deal</strong><br>
+                    Customer put deal on hold? Budget got cut? You need to know NOW to help find alternatives.
+                </div>
+                
+                <div class="red-flag">
+                    <strong>🚩 Competitor gaining ground with partner</strong><br>
+                    Partner mentioned they're exploring other solutions. This is your signal to increase engagement.
+                </div>
+                
+                <div class="red-flag">
+                    <strong>🚩 Partner dissatisfied or unresponsive</strong><br>
+                    Missing calls? Short answers? Unhappy tone? This relationship is cooling. Escalate to leadership.
+                </div>
+                
+                <p style="margin-top: 20px; padding: 15px; background: #e7f5e7; border-radius: 8px; border-left: 3px solid #28a745;">
+                    <strong>✅ When in doubt, escalate.</strong> Your job is to catch problems early. Better to over-communicate than miss a risk.
+                </p>
+                
+                <button class="download-btn" onclick="downloadTab('red-flags')">📥 Download This Section</button>
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            <p>💡 <strong>Bookmark this page.</strong> Reference it before and after every partner call. This is your playbook.</p>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(evt, tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            // Show the clicked tab and mark button as active
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+        
+        function downloadTab(tabName) {
+            const tabElement = document.getElementById(tabName);
+            const text = tabElement.innerText;
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', 'playbook-' + tabName + '.txt');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>
